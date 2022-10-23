@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/ivDinnerDecider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dd_logo"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/content_desc_dinner_decider_logo" />
+
+    <TextView
+        android:id="@+id/tvFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/teal_900"
+        android:textSize="42sp"
+        app:layout_constraintTop_toBottomOf="@id/ivDinnerDecider"
+        app:layout_constraintEnd_toEndOf="@+id/ivDinnerDecider"
+        app:layout_constraintStart_toStartOf="@+id/ivDinnerDecider"
+        tools:text="Hamburger"/>
+
+    <EditText
+        android:id="@+id/etAddNewFood"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/txt_hint_add_new_food"
+        android:labelFor="@id/tvFood"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddFood"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddFood"
+        app:layout_constraintStart_toStartOf="@+id/btnAddFood"
+        android:autofillHints="@string/txt_btn_add_food"
+        android:inputType="text"
+        android:imeOptions="actionDone" />
+
+    <Button
+        android:id="@+id/btnAddFood"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_btn_add_food"
+        app:layout_constraintBottom_toTopOf="@+id/btnDecide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivDinnerDecider" />
+
+    <Button
+        android:id="@+id/btnDecide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/txt_btn_decide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
