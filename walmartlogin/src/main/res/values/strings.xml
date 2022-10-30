@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">WalmartLogin</string>
+    <string name="login">Sign in to your account</string>
+    <string name="signup">Create your account</string>
+    <string name="login_email">Email address (required)</string>
+    <string name="login_password">Password (required)</string>
+    <string name="login_forgot_your_password">Forgot password?</string>
+    <string name="login_btn">Sign In</string>
+    <string name="login_do_not_have_an_account_yet">Don\'t have an account?</string>
+    <string name="login_link_sign_up">Create a new account</string>
+    <string name="create_an_account">create an account</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="txt_shop_by_categories">Shop by Categories</string>
+    <string name="txt_electronics">Electronics</string>
+    <string name="txt_clothing">Clothing</string>
+    <string name="txt_beauty">Beauty</string>
+    <string name="txt_food">Food</string>
+    <string name="txt_welcome">welcome %1$s</string>
+    <string name="txt_required_field">* required field</string>
+    <string name="first_name">First name*</string>
+    <string name="enter_first_name">Enter first name</string>
+    <string name="last_name">Last name*</string>
+    <string name="enter_last_name">Enter last name</string>
+    <string name="email_address">Email address*</string>
+    <string name="enter_email_address">Enter email address</string>
+    <string name="password">Password*</string>
+    <string name="enter_password">Enter password</string>
+    <string name="create_account">Create Account</string>
+</resources>
