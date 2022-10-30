@@ -78,8 +78,12 @@ class MainActivity : AppCompatActivity() {
            for (user in userList){
                if (user.userName == username && user.password == password){
                    isValidUser = true
+               }else{
+                   Toast.makeText(this,"Wrong credentials please review",Toast.LENGTH_SHORT).show()
                }
            }
+        }else{
+            Toast.makeText(this,"Please enter both email and password",Toast.LENGTH_SHORT).show()
         }
         return isValidUser
     }
