@@ -16,3 +16,4 @@ rootProject.name = "Dinner Decider"
 include ':dinnerDecider'
 include ':tablayoutapplication'
 include ':walmartlogin'
+include ':quizapp'
