@@ -27,4 +27,12 @@
     <string name="password">Password*</string>
     <string name="enter_password">Enter password</string>
     <string name="create_account">Create Account</string>
+    <string name="title_activity_electronic_detail">ElectronicDetail</string>
+
+
+    <string name="price_string">Price: $%.2f</string>
+    <string name="color_string">Color: %1$s</string>
+    <string name="walmart_id">Walmart #: %1$s</string>
+    <string name="item_description">Item Description: %1$s</string>
+    <string name="content_desc_product_image">product image</string>
 </resources>
