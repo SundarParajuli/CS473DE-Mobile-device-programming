@@ -23,11 +23,11 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:visibility="invisible"
-        app:itemIconTint="@color/bottom_nav_color"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_items" />
+        app:menu="@menu/bottom_navigation_items"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

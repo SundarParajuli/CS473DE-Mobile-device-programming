@@ -6,14 +6,235 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.HomeFragment">
 
+    <ImageView
+        android:id="@+id/ivCoverPic"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@color/purple_200"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic"
+        />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:padding="8dp"
+        android:src="@color/purple_700"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top"
+        app:shapeAppearance="@style/ShapeAppearance.App.CircleImageView"
+        app:strokeColor="@color/white"
+        app:strokeWidth="4dp"
+        tools:src="@tools:sample/avatars" />
+
     <TextView
+        android:id="@+id/tv_profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello Home"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/shapeableImageView"
+        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+
+    <TextView
+        android:id="@+id/tv_profile_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android developer"
+        android:textColor="@color/black_70"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/shapeableImageView"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_name" />
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_career_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_description" >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvCareerNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Career note"
+                android:textColor="@color/black_70"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tvCareerNoteDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Completed on-campus studies and currently taking distance education courses to complete a Master's Degree in computer science (Available for full-time, w-2 employment)."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvCareerNote"
+                app:layout_constraintTop_toBottomOf="@id/tvCareerNote" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_tools_technologies"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_career_note" >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tv_tools_technologies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tools and Technologies"
+                android:textColor="@color/black_70"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tv_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Languages: "
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tv_tools_technologies"
+                app:layout_constraintTop_toBottomOf="@id/tv_tools_technologies" />
+
+            <TextView
+                android:id="@+id/tv_language_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Languages"
+                app:layout_constraintStart_toEndOf="@id/tv_language"
+                app:layout_constraintTop_toBottomOf="@id/tv_tools_technologies" />
+
+            <TextView
+                android:id="@+id/tv_frameworks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frameworks/Web: "
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_language_desc" />
+
+            <TextView
+                android:id="@+id/tv_framework_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="framework desc"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_frameworks"
+                app:layout_constraintStart_toEndOf="@id/tv_frameworks"
+                app:layout_constraintTop_toTopOf="@id/tv_frameworks" />
+
+            <TextView
+                android:id="@+id/tv_microservice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Microservices/Cloud: "
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_framework_desc" />
+
+            <TextView
+                android:id="@+id/tv_microservice_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="microservice desc"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_microservice"
+                app:layout_constraintStart_toEndOf="@id/tv_microservice"
+                app:layout_constraintTop_toTopOf="@id/tv_microservice" />
+
+            <TextView
+                android:id="@+id/tv_database"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Databases: "
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_microservice_desc" />
+
+            <TextView
+                android:id="@+id/tv_database_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="database desc"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_database"
+                app:layout_constraintStart_toEndOf="@id/tv_database"
+                app:layout_constraintTop_toTopOf="@id/tv_database" />
+
+            <TextView
+                android:id="@+id/tv_tools"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tools: "
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_database_desc" />
+
+            <TextView
+                android:id="@+id/tv_tools_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tools desc"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_tools"
+                app:layout_constraintStart_toEndOf="@id/tv_tools"
+                app:layout_constraintTop_toTopOf="@id/tv_tools" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_tools_technologies" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.17"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95"/>
+
 
 
 
