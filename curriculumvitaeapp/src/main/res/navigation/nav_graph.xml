@@ -21,29 +21,40 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sundar.curriculumvitaeapp.ui.main.HomeFragment"
+        android:name="com.sundar.curriculumvitaeapp.ui.main.nav.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <argument
             android:name="isLoggedIn"
             app:argType="boolean"
             android:defaultValue="false"/>
+
+        <action android:id="@+id/action_edit_profile"
+            app:destination="@id/EditProfileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"/>
     </fragment>
     <fragment
         android:id="@+id/workFragment"
-        android:name="com.sundar.curriculumvitaeapp.WorkFragment"
+        android:name="com.sundar.curriculumvitaeapp.ui.main.nav.work.WorkFragment"
         android:label="fragment_work"
         tools:layout="@layout/fragment_work" />
     <fragment
         android:id="@+id/contactFragment"
-        android:name="com.sundar.curriculumvitaeapp.ui.main.ContactFragment"
+        android:name="com.sundar.curriculumvitaeapp.ui.main.nav.contact.ContactFragment"
         android:label="fragment_contact"
         tools:layout="@layout/fragment_contact" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.sundar.curriculumvitaeapp.ui.main.ProfileFragment"
+        android:name="com.sundar.curriculumvitaeapp.ui.main.nav.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/EditProfileFragment"
+        android:name="com.sundar.curriculumvitaeapp.ui.main.nav.home.ProfileEditFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_profile_edit" />
 
     <action android:id="@+id/action_home"
         app:destination="@id/homeFragment"
@@ -64,5 +75,8 @@
         app:destination="@id/contactFragment"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"/>
+
+
+
 
 </navigation>

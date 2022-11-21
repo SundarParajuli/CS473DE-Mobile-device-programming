@@ -1,13 +1,16 @@
-package com.sundar.curriculumvitaeapp.ui.main
+package com.sundar.curriculumvitaeapp.ui.main.nav.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.sundar.curriculumvitaeapp.R
 import com.sundar.curriculumvitaeapp.databinding.FragmentHomeBinding
 
@@ -24,7 +27,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -34,6 +37,13 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav_view)
         bottomNavigationView?.visibility = View.VISIBLE
+        val fabAdd = activity?.findViewById<FloatingActionButton>(R.id.fab_action)
+        fabAdd?.visibility = View.VISIBLE
+        fabAdd?.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionEditProfile())
+        }
+        val toolBar = activity?.findViewById<TextView>(R.id.tv_title)
+        toolBar?.text = "Home"
     }
 
 }
