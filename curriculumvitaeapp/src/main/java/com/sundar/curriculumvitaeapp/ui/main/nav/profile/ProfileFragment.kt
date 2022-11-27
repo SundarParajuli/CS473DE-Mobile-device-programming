@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,6 +39,8 @@ class ProfileFragment : Fragment() {
         viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
         initRecyclerView()
         val fabAdd = activity?.findViewById<FloatingActionButton>(R.id.fab_action)
+        fabAdd?.setImageDrawable(ResourcesCompat.getDrawable(resources,R.drawable.ic_baseline_create_24,null))
+        fabAdd?.visibility = View.VISIBLE
         fabAdd?.setOnClickListener {
             Toast.makeText(context, "Work fragment", Toast.LENGTH_SHORT).show()
         }

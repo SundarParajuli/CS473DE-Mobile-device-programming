@@ -104,7 +104,7 @@
 
             <TextView
                 android:id="@+id/tvCareerNoteDesc"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Completed on-campus studies and currently taking distance education courses to complete a Master's Degree in computer science (Available for full-time, w-2 employment)."
                 app:layout_constraintEnd_toEndOf="parent"
@@ -124,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@+id/card_view_career_note" >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="8dp">
 
             <TextView
@@ -144,16 +144,26 @@
                 android:layout_height="wrap_content"
                 android:text="Languages: "
                 android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/hs_language_desc"
+                app:layout_constraintBottom_toTopOf="@id/tv_frameworks"
                 app:layout_constraintStart_toStartOf="@id/tv_tools_technologies"
                 app:layout_constraintTop_toBottomOf="@id/tv_tools_technologies" />
-
-            <TextView
-                android:id="@+id/tv_language_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Languages"
+            <HorizontalScrollView
+                android:id="@+id/hs_language_desc"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_language"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tv_language"
-                app:layout_constraintTop_toBottomOf="@id/tv_tools_technologies" />
+                app:layout_constraintTop_toTopOf="@+id/tv_language">
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/cg_language_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:singleLine="true"
+                        tools:layout_height="24dp" />
+            </HorizontalScrollView>
 
             <TextView
                 android:id="@+id/tv_frameworks"
@@ -162,16 +172,23 @@
                 android:text="Frameworks/Web: "
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_language_desc" />
+                app:layout_constraintTop_toBottomOf="@id/hs_language_desc" />
 
-            <TextView
-                android:id="@+id/tv_framework_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="framework desc"
+            <HorizontalScrollView
+                android:id="@+id/hs_framework_desc"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_frameworks"
                 app:layout_constraintStart_toEndOf="@id/tv_frameworks"
-                app:layout_constraintTop_toTopOf="@id/tv_frameworks" />
+                app:layout_constraintTop_toTopOf="@+id/tv_frameworks">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_framework_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true" />
+            </HorizontalScrollView>
 
             <TextView
                 android:id="@+id/tv_microservice"
@@ -180,16 +197,23 @@
                 android:text="Microservices/Cloud: "
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_framework_desc" />
+                app:layout_constraintTop_toBottomOf="@id/hs_framework_desc" />
 
-            <TextView
-                android:id="@+id/tv_microservice_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="microservice desc"
+            <HorizontalScrollView
+                android:id="@+id/hs_microservice_desc"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_microservice"
                 app:layout_constraintStart_toEndOf="@id/tv_microservice"
-                app:layout_constraintTop_toTopOf="@id/tv_microservice" />
+                app:layout_constraintTop_toTopOf="@id/tv_microservice">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_microservice_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true" />
+            </HorizontalScrollView>
 
             <TextView
                 android:id="@+id/tv_database"
@@ -198,16 +222,24 @@
                 android:text="Databases: "
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_microservice_desc" />
+                app:layout_constraintTop_toBottomOf="@id/hs_microservice_desc" />
 
-            <TextView
-                android:id="@+id/tv_database_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="database desc"
+            <HorizontalScrollView
+                android:id="@+id/hs_database_desc"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_database"
                 app:layout_constraintStart_toEndOf="@id/tv_database"
-                app:layout_constraintTop_toTopOf="@id/tv_database" />
+                app:layout_constraintTop_toTopOf="@id/tv_database">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_database_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true" />
+            </HorizontalScrollView>
+
 
             <TextView
                 android:id="@+id/tv_tools"
@@ -216,16 +248,23 @@
                 android:text="Tools: "
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_database_desc" />
+                app:layout_constraintTop_toBottomOf="@id/hs_database_desc" />
 
-            <TextView
-                android:id="@+id/tv_tools_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tools desc"
+            <HorizontalScrollView
+                android:id="@+id/hs_tools_desc"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_tools"
                 app:layout_constraintStart_toEndOf="@id/tv_tools"
-                app:layout_constraintTop_toTopOf="@id/tv_tools" />
+                app:layout_constraintTop_toTopOf="@id/tv_tools">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_tools_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true" />
+            </HorizontalScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -253,9 +292,10 @@
     <androidx.constraintlayout.widget.Group
         android:id="@+id/cg_add"
         app:constraint_referenced_ids="sv_add_cover,iv_add_profile"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
 
 
 
