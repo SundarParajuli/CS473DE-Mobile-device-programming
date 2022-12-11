@@ -1,4 +1,4 @@
-package com.sundar.curriculumvitaeapp
+package com.sundar.curriculumvitaeapp.ui.main.WebView
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.sundar.curriculumvitaeapp.R
 import com.sundar.curriculumvitaeapp.databinding.FragmentWebViewBinding
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
@@ -30,6 +32,8 @@ class WebViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val fabAdd = activity?.findViewById<FloatingActionButton>(R.id.fab_action)
+        fabAdd?.visibility = View.INVISIBLE
         navArgs<WebViewFragmentArgs>().let {
             with(binding.webview) {
                 val settings = this.settings

@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/webViewFragment"
-        android:name="com.sundar.curriculumvitaeapp.WebViewFragment"
+        android:name="com.sundar.curriculumvitaeapp.ui.main.WebView.WebViewFragment"
         android:label="LinkedIn"
         tools:layout="@layout/fragment_web_view" >
         <argument
