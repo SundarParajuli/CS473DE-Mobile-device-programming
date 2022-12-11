@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.sundar.curriculumvitaeapp.R
 import com.sundar.curriculumvitaeapp.data.Certification
 import com.sundar.curriculumvitaeapp.databinding.ItemCertificationBinding
 
@@ -29,7 +30,12 @@ class CertificationAdapter(var onItemClick: ((Certification) -> Unit)?) : ListAd
     inner class ViewHolder(private val binding: ItemCertificationBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(certification: Certification){
-            Glide.with(binding.root.context).load(certification.imageUrl).into(binding.ivLogo)
+            Glide.with(binding.root.context)
+                .load(
+                  certification.imageUrl
+                ).placeholder(R.drawable.ic_baseline_android_24)
+                .dontAnimate()
+                .into(binding.ivLogo)
             binding.tvCertificationTitle.text= certification.certificationTitle
 
         }
@@ -38,9 +44,8 @@ class CertificationAdapter(var onItemClick: ((Certification) -> Unit)?) : ListAd
 
     class DiffCallback : DiffUtil.ItemCallback<Certification>() {
         override fun areItemsTheSame(oldItem: Certification, newItem: Certification) =
-//            oldItem.itemId == newItem.itemId
-            false
-        //TODO:: work on handling diff
+            oldItem.certificationTitle == newItem.certificationTitle
+
         override fun areContentsTheSame(oldItem: Certification, newItem: Certification) =
             oldItem == newItem
     }

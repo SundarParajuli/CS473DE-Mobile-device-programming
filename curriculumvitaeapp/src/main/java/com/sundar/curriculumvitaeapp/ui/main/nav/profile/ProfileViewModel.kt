@@ -1,11 +1,14 @@
 package com.sundar.curriculumvitaeapp.ui.main.nav.profile
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import com.sundar.curriculumvitaeapp.data.Certification
 import com.sundar.curriculumvitaeapp.data.Education
+import com.sundar.curriculumvitaeapp.utils.SharedPrefConstants
+import com.sundar.curriculumvitaeapp.utils.SharedPrefsUtil
 
-class ProfileViewModel : ViewModel() {
-    val educationList = mutableListOf<Education>()
+class ProfileViewModel(var context:Application) : AndroidViewModel(context) {
+    var educationList = mutableListOf<Education>()
     val certificationList = mutableListOf<Certification>()
     init {
         initEducationList()
@@ -13,16 +16,26 @@ class ProfileViewModel : ViewModel() {
     }
 
     private fun initCertificationList() {
-
+        val cerList = SharedPrefsUtil.retrieveList(context, SharedPrefConstants.CERTIFICATIONS)
+        cerList?.let {
+            for (item in cerList) {
+                if (item is Certification) {
+                    certificationList.add(item)
+                }
+            }
+        }
     }
 
     private fun initEducationList() {
-        val education = Education("","Ambition Academy","High school")
-        val educationBachelors = Education("","St. Xavier's college","BIM")
-        educationList.add(education)
-        educationList.add(educationBachelors)
-        educationList.add(educationBachelors)
-        educationList.add(educationBachelors)
+       val eduList = SharedPrefsUtil.retrieveList(context, SharedPrefConstants.EDUCATIONS)
+        eduList?.let {
+            for (item in eduList){
+                if (item is Education){
+                    educationList.add(item)
+                }
+            }
+        }
+
     }
 
     fun <T> addItem(item:T){

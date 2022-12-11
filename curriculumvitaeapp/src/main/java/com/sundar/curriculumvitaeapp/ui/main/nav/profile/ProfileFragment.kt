@@ -1,19 +1,26 @@
 package com.sundar.curriculumvitaeapp.ui.main.nav.profile
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.Button
+import android.widget.LinearLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.sundar.curriculumvitaeapp.R
 import com.sundar.curriculumvitaeapp.databinding.FragmentProfileBinding
 import com.sundar.curriculumvitaeapp.ui.main.nav.profile.adapter.CertificationAdapter
 import com.sundar.curriculumvitaeapp.ui.main.nav.profile.adapter.EducationAdapter
+import com.sundar.curriculumvitaeapp.utils.SharedPrefConstants
+import com.sundar.curriculumvitaeapp.utils.SharedPrefsUtil
+
 
 class ProfileFragment : Fragment() {
 
@@ -40,10 +47,44 @@ class ProfileFragment : Fragment() {
         initRecyclerView()
         val fabAdd = activity?.findViewById<FloatingActionButton>(R.id.fab_action)
         fabAdd?.setImageDrawable(ResourcesCompat.getDrawable(resources,R.drawable.ic_baseline_create_24,null))
-        fabAdd?.visibility = View.VISIBLE
-        fabAdd?.setOnClickListener {
-            Toast.makeText(context, "Work fragment", Toast.LENGTH_SHORT).show()
+        val isLoggedIn:Boolean? = SharedPrefsUtil.isUserLoggedIn(requireContext(),SharedPrefConstants.IS_LOGGED_IN)
+        isLoggedIn?.let {
+            when(it){
+                true ->fabAdd?.visibility = View.VISIBLE
+                false ->fabAdd?.visibility = View.INVISIBLE
+            }
         }
+        fabAdd?.setOnClickListener {
+            createAlertDialogAndNavigateToAddScreen()
+        }
+    }
+
+    private fun createAlertDialogAndNavigateToAddScreen() {
+        var itemClicked: String? = null
+        val items = arrayOf(AddItemConstants.EDUCATION, AddItemConstants.CERTIFICATION)
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Add new")
+        builder.setSingleChoiceItems(items, 0) { _, which ->
+            // Do something when an item is selected
+            itemClicked = items[which]
+        }
+        val layout = LinearLayout(context)
+        layout.gravity = Gravity.CENTER
+        layout.addView(Button(context))
+        builder.setNeutralButton(
+            "ADD"
+        ) { _, _ ->
+            //navigateTo edit screen and set param based on item clicked
+            if (itemClicked == null) {
+                itemClicked = items[0]
+            }
+            val directions =
+                ProfileFragmentDirections.actionProfileFragmentToAddProfileFragment(itemClicked)
+            findNavController().navigate(directions)
+        }
+
+        val dialog = builder.create()
+        dialog.show()
     }
 
     private fun initRecyclerView() {
@@ -55,6 +96,7 @@ class ProfileFragment : Fragment() {
         this.educationAdapter = EducationAdapter {}
         educationAdapter.submitList(viewModel.educationList)
         binding.rvCollege.apply {
+            this.setHasFixedSize(false)
             this.layoutManager = LinearLayoutManager(context)
             this.adapter = educationAdapter
         }
@@ -64,6 +106,7 @@ class ProfileFragment : Fragment() {
         this.certificationAdapter = CertificationAdapter { }
         certificationAdapter.submitList(viewModel.certificationList)
         binding.rvCertification.apply {
+            this.setHasFixedSize(false)
             this.layoutManager = LinearLayoutManager(context)
             this.adapter = certificationAdapter
         }

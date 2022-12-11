@@ -8,75 +8,79 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.sundar.curriculumvitaeapp.ui.main.login.LoginFragment"
-        android:label="fragment_login"
+        android:label="Login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" >
-
         </action>
     </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.sundar.curriculumvitaeapp.ui.main.nav.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <argument
-            android:name="isLoggedIn"
-            app:argType="boolean"
-            android:defaultValue="false"/>
-
-        <action android:id="@+id/action_edit_profile"
-            app:destination="@id/EditProfileFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"/>
-    </fragment>
+        android:label="Home"
+        tools:layout="@layout/fragment_home"/>
     <fragment
         android:id="@+id/workFragment"
         android:name="com.sundar.curriculumvitaeapp.ui.main.nav.work.WorkFragment"
-        android:label="fragment_work"
-        tools:layout="@layout/fragment_work" />
+        android:label="Work"
+        tools:layout="@layout/fragment_work" >
+        <action
+            android:id="@+id/action_workFragment_to_addProfileFragment"
+            app:destination="@id/addProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/contactFragment"
         android:name="com.sundar.curriculumvitaeapp.ui.main.nav.contact.ContactFragment"
-        android:label="fragment_contact"
-        tools:layout="@layout/fragment_contact" />
+        android:label="Contact"
+        tools:layout="@layout/fragment_contact" >
+
+        <action
+            android:id="@+id/action_contactFragment_to_addProfileFragment"
+            app:destination="@id/addProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.sundar.curriculumvitaeapp.ui.main.nav.profile.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_addProfileFragment"
+            app:destination="@id/addProfileFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/EditProfileFragment"
-        android:name="com.sundar.curriculumvitaeapp.ui.main.nav.home.ProfileEditFragment"
-        android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_profile_edit" />
-
-    <action android:id="@+id/action_home"
-        app:destination="@id/homeFragment"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"/>
-
-    <action android:id="@+id/action_profile"
-        app:destination="@id/profileFragment"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"/>
-
-    <action android:id="@+id/action_work"
-        app:destination="@id/workFragment"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"/>
-
-    <action android:id="@+id/action_contact"
-        app:destination="@id/contactFragment"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim"/>
-
-
+        android:id="@+id/addProfileFragment"
+        android:name="com.sundar.curriculumvitaeapp.ui.main.nav.profile.AddProfileFragment"
+        android:label="Add Item"
+        tools:layout="@layout/fragment_add_profile" >
+        <action
+            android:id="@+id/action_addProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_addProfileFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
+        <action
+            android:id="@+id/action_addProfileFragment_to_workFragment"
+            app:destination="@id/workFragment" />
+        <argument
+            android:name="fromScreen"
+            app:argType="string"
+            app:nullable="true"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.sundar.curriculumvitaeapp.WebViewFragment"
+        android:label="LinkedIn"
+        tools:layout="@layout/fragment_web_view" >
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="false"/>
+    </fragment>
 
 
 </navigation>

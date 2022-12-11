@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.sundar.curriculumvitaeapp.R
 import com.sundar.curriculumvitaeapp.data.Education
 import com.sundar.curriculumvitaeapp.databinding.ItemEducationBinding
 
@@ -29,7 +30,11 @@ class EducationAdapter(var onItemClick: ((Education) -> Unit)?) : ListAdapter<Ed
     inner class ViewHolder(private val binding: ItemEducationBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(education: Education){
-            Glide.with(binding.root.context).load(education.imageUrl).into(binding.ivLogo)
+            Glide.with(binding.root.context)
+                .load(
+                   education.imageUrl
+                ).placeholder(R.drawable.ic_baseline_school_24)
+                .into(binding.ivLogo)
             binding.tvName.text= education.collegeTitle
             binding.tvDegreeTitle.text= education.degreeTitle
         }
@@ -38,9 +43,8 @@ class EducationAdapter(var onItemClick: ((Education) -> Unit)?) : ListAdapter<Ed
 
     class DiffCallback : DiffUtil.ItemCallback<Education>() {
         override fun areItemsTheSame(oldItem: Education, newItem: Education) =
-//            oldItem.itemId == newItem.itemId
-            false
-        //TODO:: work on handling diff
+            oldItem.imageUrl == newItem.imageUrl
+
         override fun areContentsTheSame(oldItem: Education, newItem: Education) =
             oldItem == newItem
     }

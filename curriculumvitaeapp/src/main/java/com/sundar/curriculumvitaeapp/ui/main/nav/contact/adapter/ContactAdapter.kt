@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.sundar.curriculumvitaeapp.R
 import com.sundar.curriculumvitaeapp.data.Contact
 import com.sundar.curriculumvitaeapp.databinding.ItemContactBinding
 
@@ -29,7 +30,9 @@ class ContactAdapter(var onItemClick: ((Contact) -> Unit)?) : ListAdapter<Contac
     inner class ViewHolder(private val binding: ItemContactBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(contact: Contact){
-            Glide.with(binding.root.context).load(contact.imageUrl).into(binding.ivLogo)
+            Glide.with(binding.root.context).load(contact.imageUrl)
+                .placeholder(R.drawable.ic_contact_24)
+                .into(binding.ivLogo)
             binding.tvContact.text= contact.contact
             binding.tvContactType.text= contact.contactType
 
@@ -39,9 +42,8 @@ class ContactAdapter(var onItemClick: ((Contact) -> Unit)?) : ListAdapter<Contac
 
     class DiffCallback : DiffUtil.ItemCallback<Contact>() {
         override fun areItemsTheSame(oldItem: Contact, newItem: Contact) =
-//            oldItem.itemId == newItem.itemId
-            false
-        //TODO:: work on handling diff
+            oldItem.contact == newItem.contact
+
         override fun areContentsTheSame(oldItem: Contact, newItem: Contact) =
             oldItem == newItem
     }

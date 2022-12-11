@@ -5,13 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.google.android.flexbox.FlexboxLayout
 import com.google.android.material.chip.Chip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -52,8 +50,6 @@ class ProfileEditFragment : Fragment() {
             }
             false
         }
-        val toolBar = activity?.findViewById<TextView>(R.id.tv_title)
-        toolBar?.text = "Edit Profile Information"
     }
 
     private fun validateDataAndSave() {
@@ -75,7 +71,7 @@ class ProfileEditFragment : Fragment() {
 //
 //            viewModel.fullName.emit(binding.tilName.editText?.text.toString())
 //            viewModel.intro.emit(binding.tilIntro.editText?.text.toString())
-             findNavController().navigate(HomeFragmentDirections.actionHome())
+//             findNavController().navigate(HomeFragmentDirections.actionHome())
 
         }
     }

@@ -1,26 +1,21 @@
 package com.sundar.curriculumvitaeapp.ui.main.nav.contact
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import com.sundar.curriculumvitaeapp.data.Contact
+import com.sundar.curriculumvitaeapp.utils.SharedPrefConstants
+import com.sundar.curriculumvitaeapp.utils.SharedPrefsUtil
 
-class ContactViewModel : ViewModel() {
+class ContactViewModel(context: Application) : AndroidViewModel(context) {
     val contactList = mutableListOf<Contact>()
     init {
-        val contact = Contact(
-            "",
-            "abc@gmail.com",
-        "email"
-        )
-        val contact2 = Contact(
-            "",
-            "123-456-7890",
-        "phone"
-        )
-        addContact(contact)
-        addContact(contact2)
-    }
-
-    fun addContact(contact: Contact){
-        contactList.add(contact)
+        val cList = SharedPrefsUtil.retrieveList(context, SharedPrefConstants.CONTACTS)
+        cList?.let {
+            for (item in cList) {
+                if (item is Contact) {
+                    contactList.add(item)
+                }
+            }
+        }
     }
 }

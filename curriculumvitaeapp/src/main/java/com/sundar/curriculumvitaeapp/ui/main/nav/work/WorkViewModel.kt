@@ -1,32 +1,22 @@
 package com.sundar.curriculumvitaeapp.ui.main.nav.work
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import com.sundar.curriculumvitaeapp.data.Work
+import com.sundar.curriculumvitaeapp.utils.SharedPrefConstants
+import com.sundar.curriculumvitaeapp.utils.SharedPrefsUtil
 
-class WorkViewModel : ViewModel() {
+class WorkViewModel(context: Application) : AndroidViewModel(context) {
     val workExperienceList = mutableListOf<Work>()
 
     init {
-        val work = Work(
-            "",
-            "Android dev",
-            "Ebpearls pty ltd",
-            "jan 2015- july 2019",
-            "Kathmandu, Nepal",
-            "Developing android apps"
-        )
-        val work2 = Work(
-            "",
-            "Android dev",
-            "Hello world",
-            "jan 2015- july 2019",
-            "Kathmandu, Nepal",
-            "Developing android apps"
-        )
-        addWork(work)
-        addWork(work2)
-    }
-    fun addWork(work: Work){
-        workExperienceList.add(work)
+        val workList = SharedPrefsUtil.retrieveList(context, SharedPrefConstants.WORK_EXPERIENCES)
+        workList?.let {
+            for (item in workList) {
+                if (item is Work) {
+                    workExperienceList.add(item)
+                }
+            }
+        }
     }
 }
