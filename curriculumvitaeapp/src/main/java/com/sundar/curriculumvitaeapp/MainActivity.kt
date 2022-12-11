@@ -6,6 +6,7 @@ import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -43,6 +44,13 @@ class MainActivity : AppCompatActivity() {
                 binding.bottomNavView.visibility = View.VISIBLE
                 binding.materialToolbar.visibility = View.VISIBLE
             }
+            binding.fabAction.setImageDrawable(resources?.let {
+                ResourcesCompat.getDrawable(
+                    it,
+                    R.drawable.ic_baseline_create_24,
+                    null
+                )
+            })
         }
         binding.ibShare.setOnClickListener {
 
@@ -63,9 +71,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.ibLinkedin.setOnClickListener {
             val url = "https://www.linkedin.com/in/sundarparajuli/"
-//            val intent = Intent(Intent.ACTION_VIEW)
-//            intent.data = Uri.parse(url)
-//            startActivity(intent)
             val bundle = Bundle()
                 bundle.putString("url",url)
             navController.navigate(R.id.webViewFragment,bundle)

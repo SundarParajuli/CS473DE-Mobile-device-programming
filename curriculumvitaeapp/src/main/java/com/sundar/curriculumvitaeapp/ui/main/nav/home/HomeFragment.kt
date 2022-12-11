@@ -13,6 +13,7 @@ import com.google.android.material.chip.ChipGroup
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.sundar.curriculumvitaeapp.R
 import com.sundar.curriculumvitaeapp.databinding.FragmentHomeBinding
+import com.sundar.curriculumvitaeapp.utils.HomeConstants
 import kotlinx.coroutines.flow.update
 
 class HomeFragment : Fragment() {
@@ -43,15 +44,15 @@ class HomeFragment : Fragment() {
             viewModel.introDatas.collect() {
                 it.forEach { pair ->
                     when (pair.first) {
-                        ProfileEditFragment.HomeConstants.FULL_NAME -> {
+                        HomeConstants.FULL_NAME -> {
                             if (pair.second?.isNotBlank() == true)
                                 binding.tvProfileName.text = pair.second
                         }
-                        ProfileEditFragment.HomeConstants.INTRO -> {
+                        HomeConstants.INTRO -> {
                             if (pair.second?.isNotBlank() == true)
                                 binding.tvProfileDescription.text = pair.second
                         }
-                        ProfileEditFragment.HomeConstants.CAREER_NOTE -> {
+                        HomeConstants.CAREER_NOTE -> {
                             if (pair.second?.isNotBlank() == true)
                                 binding.tvCareerNoteDesc.text = pair.second
                         }
@@ -79,27 +80,27 @@ class HomeFragment : Fragment() {
         index: Int
     ) {
         when (constant) {
-            ProfileEditFragment.HomeConstants.LANGUAGES -> {
+            HomeConstants.LANGUAGES -> {
                 with(binding.cgLanguageDesc) {
                     inflateChipView(second, list, index)
                 }
             }
-            ProfileEditFragment.HomeConstants.FRAMEWORKS_WEB -> {
+            HomeConstants.FRAMEWORKS_WEB -> {
                 with(binding.cgFrameworkDesc) {
                     inflateChipView(second, list, index)
                 }
             }
-            ProfileEditFragment.HomeConstants.MICROSERVICES_CLOUD -> {
+            HomeConstants.MICROSERVICES_CLOUD -> {
                 with(binding.cgMicroserviceDesc) {
                     inflateChipView(second, list, index)
                 }
             }
-            ProfileEditFragment.HomeConstants.DATABASES -> {
+            HomeConstants.DATABASES -> {
                 with(binding.cgDatabaseDesc) {
                     inflateChipView(second, list, index)
                 }
             }
-            ProfileEditFragment.HomeConstants.TOOLS -> {
+            HomeConstants.TOOLS -> {
                 with(binding.cgToolsDesc) {
                     inflateChipView(second, list, index)
                 }
