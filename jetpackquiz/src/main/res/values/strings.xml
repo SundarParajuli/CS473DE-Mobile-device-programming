@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Jetpack Quiz</string>
+    <string name="title_onboarding_1">Android Quiz</string>
+    <string name="description_onboarding_1">Enhance your android programming skills and test your knowledge with our challenging android programming quiz
+    </string>
+
+    <string name="title_onboarding_2">Select Answer</string>
+    <string name="description_onboarding_2">Select the correct answer from the given options</string>
+
+    <string name="title_onboarding_3">Improve Your Skills</string>
+    <string name="description_onboarding_3">Improve your skills by learning from the correct answers</string>
+    <string name="home">Home</string>
+    <string name="next_question">Next Question</string>
+    <string name="start_quiz">start quiz</string>
+    <string name="show_results">Show Results</string>
+    <string name="restart_quiz">Restart Quiz</string>
+    <string name="result_analysis">Result Analysis</string>
+
+
+</resources>
