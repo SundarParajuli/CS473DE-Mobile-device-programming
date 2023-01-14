@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/quizFragment"
-        android:name="com.miu.mdp.ui.quiz.QuizFragment"
+        android:name="com.sundar.jetpackquiz.ui.quiz.QuizFragment"
         android:label="fragment_quiz"
         tools:layout="@layout/fragment_quiz">
         <action
@@ -20,12 +20,12 @@
     </fragment>
     <fragment
         android:id="@+id/resultAnalysisFragment"
-        android:name="com.miu.mdp.ui.result.ResultAnalysisFragment"
+        android:name="com.sundar.jetpackquiz.ui.result.ResultAnalysisFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result_analysis" />
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.miu.mdp.ui.result.ResultFragment"
+        android:name="com.sundar.jetpackquiz.ui.result.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result">
         <action
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="com.miu.mdp.ui.onboarding.OnboardingFragment"
+        android:name="com.sundar.jetpackquiz.ui.onboarding.OnboardingFragment"
         android:label="fragment_onboarding"
         tools:layout="@layout/fragment_onboarding">
         <action
@@ -52,7 +52,7 @@
         app:destination="@id/onboardingFragment" />
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.miu.mdp.ui.splash.SplashFragment"
+        android:name="com.sundar.jetpackquiz.ui.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash">
         <action
@@ -66,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.miu.mdp.ui.home.HomeFragment"
+        android:name="com.sundar.jetpackquiz.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
